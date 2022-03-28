@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+
+.body_content {
+    font-size: 1.5vw;
+    padding-top: 3%;
+}
+.body_content .left_side {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+.body_content .right_side {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3%;
+}
+
+.body_content .txt_container {
+    width: 23vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.body_content .left_txt_container {
+    margin-left: 8%;
+}
+
+.body_content .right_txt_container {
+    margin-right: 8%;
+}
+
+.body_content .txt_container .txt_title {
+    font-size: 2.2vw;
+    font-weight: 500;
+}
+
+.body_content .txt_container .red_bar {
+    background-color: rgba(237, 63, 75, 1);
+    height: 0.5vh;
+    width: 15vw;
+    border-radius: 5px;
+    margin: 0.8vh 0;
+}
+
+.body_content .txt_container .txt_description {
+    font-size: 1.5vw;
+}
+
+.body_content .txt_container .button_container {
+    width: 80%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.body_content .txt_container .button_container a {
+    margin: 1.5vh 0;
+}
+
+.body_content .button_container .action_button {
+    color: #FFFFFF;
+    background: #ED3F4B;
+    border-radius: 5px;
+    padding: 2vh 1.5vw;
+    text-align: center;
+    font-weight: 400;
+    transition: 0.05s;
+}
+
+.body_content .button_container .action_button:hover {
+    color: #FFFFFF;
+    background: #A0000C;
+    font-weight: 500;
+    transition-delay: 0.01s;
+}
+
+.body_content .txt_container .txt_subtitle {
+    font-size: 1vw;
+    margin: 0 21%;
+    text-align: center;
+}
+
+.body_content .img_container .home_image {
+    width: 40vw;
+}
