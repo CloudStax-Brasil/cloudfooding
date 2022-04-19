@@ -65,6 +65,11 @@ public class Screen extends javax.swing.JFrame {
         btnEntrar.setBackground(new java.awt.Color(102, 0, 0));
         btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
         btnEntrar.setText("Entrar");
+        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEntrarActionPerformed(evt);
+            }
+        });
 
         txtSenha.setBackground(new java.awt.Color(255, 255, 255));
         txtSenha.setForeground(new java.awt.Color(0, 0, 0));
@@ -131,6 +136,21 @@ public class Screen extends javax.swing.JFrame {
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSenhaActionPerformed
+
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
+        User user = new User();
+        Data data = new Data();
+        String nomeUser = user.getNome();
+        String senhaUser = user.getSenha();
+        String nome = txtLogin.getText();
+        String senha = String.valueOf(txtSenha.getPassword());
+        
+        if(nomeUser.equals(nome) && senhaUser.equals(senha)){
+            data.cadastrarSistema();   
+        }else{
+            System.out.println("Deu errado");
+        }
+    }//GEN-LAST:event_btnEntrarActionPerformed
 
     /**
      * @param args the command line arguments
