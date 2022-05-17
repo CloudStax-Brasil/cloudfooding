@@ -80,9 +80,9 @@
                   <Component id="labelSenha" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txtSenha" min="-2" pref="39" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnEntrar" min="-2" pref="34" max="-2" attributes="0"/>
-                  <EmptySpace pref="91" max="32767" attributes="0"/>
+                  <EmptySpace pref="84" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

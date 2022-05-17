@@ -17,6 +17,8 @@ public class Screen extends javax.swing.JFrame {
         initComponents();
     }
 
+    static Screen screen = new Screen();
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -110,9 +112,9 @@ public class Screen extends javax.swing.JFrame {
                 .addComponent(labelSenha)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -138,17 +140,34 @@ public class Screen extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        User user = new User();
-        Data data = new Data();
-        String nomeUser = user.getNome();
-        String senhaUser = user.getSenha();
-        String nome = txtLogin.getText();
+        HardwareData data = new HardwareData();
+        DatabaseConnection dbConnection = new DatabaseConnection();
+        LoggedScreen logged = new LoggedScreen();
+        logged.setLocationRelativeTo(null);
+
+        SlackConnection slack = new SlackConnection();
+        slack.getSlackInstance();
+
+        String email = txtLogin.getText();
         String senha = String.valueOf(txtSenha.getPassword());
-        
-        if(nomeUser.equals(nome) && senhaUser.equals(senha)){
-            data.cadastrarSistema();   
-        }else{
-            System.out.println("Deu errado");
+
+        dbConnection.setConnection(email, senha);
+        String emailUser = dbConnection.getEmail();
+        String senhaUser = dbConnection.getSenha();
+        String nomeUser = dbConnection.getNome();
+
+        System.out.println("Realizando conexão...");
+
+        if (emailUser.equals(email) && senhaUser.equals(senha)) {
+            User user = new User(email, senha, nomeUser);
+            logged.setUserName(user);
+            System.out.println("Conectado com sucesso!");
+            logged.getLoocaData(dbConnection);
+            logged.setVisible(true);
+            screen.dispose();
+            data.cadastrarSistema();
+        } else {
+            System.out.println("Falha na conexão!");
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 
@@ -182,7 +201,8 @@ public class Screen extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Screen().setVisible(true);
+                screen.setLocationRelativeTo(null);
+                screen.setVisible(true);
             }
         });
     }

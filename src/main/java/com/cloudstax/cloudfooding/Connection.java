@@ -1,5 +1,5 @@
 package com.cloudstax.cloudfooding;
-
+import java.sql.*;
 import org.apache.commons.dbcp2.BasicDataSource;
 
 public class Connection {
@@ -8,10 +8,10 @@ public class Connection {
     public Connection() {
         this.dataSource = new BasicDataSource();
         
-         dataSource​.setDriverClassName("org.h2.Driver");
-         dataSource​.setUrl("jdbc:h2:file:/home/eduardo.cardoso@VALEMOBI.CORP/NetBeansProjects/ProjetoBanco");
-         dataSource​.setUsername("sa");
-         dataSource​.setPassword(""); 
+         dataSource​.setDriverClassName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+         dataSource​.setUrl("jdbc:sqlserver://cloudstax.database.windows.net:1433;database=cloudstax;user=cloudstax@cloudstax;password=#Sptech2022;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
+         dataSource​.setUsername("cloudstax");
+         dataSource​.setPassword("#Sptech2022"); 
     }
 
     public BasicDataSource getDataSource() {

@@ -1,4 +1,6 @@
-/home/eduardo.cardoso@VALEMOBI.CORP/Área de Trabalho/cloudfooding/src/main/java/com/cloudstax/cloudfooding/Data.java
-/home/eduardo.cardoso@VALEMOBI.CORP/Área de Trabalho/cloudfooding/src/main/java/com/cloudstax/cloudfooding/Screen.java
-/home/eduardo.cardoso@VALEMOBI.CORP/Área de Trabalho/cloudfooding/src/main/java/com/cloudstax/cloudfooding/Connection.java
-/home/eduardo.cardoso@VALEMOBI.CORP/Área de Trabalho/cloudfooding/src/main/java/com/cloudstax/cloudfooding/User.java
+/home/gabriel.aguiar@VALEMOBI.CORP/Documents/git-projects/cloudfooding/src/main/java/com/cloudstax/cloudfooding/LoggedScreen.java
+/home/gabriel.aguiar@VALEMOBI.CORP/Documents/git-projects/cloudfooding/src/main/java/com/cloudstax/cloudfooding/DatabaseConnection.java
+/home/gabriel.aguiar@VALEMOBI.CORP/Documents/git-projects/cloudfooding/src/main/java/com/cloudstax/cloudfooding/Connection.java
+/home/gabriel.aguiar@VALEMOBI.CORP/Documents/git-projects/cloudfooding/src/main/java/com/cloudstax/cloudfooding/Screen.java
+/home/gabriel.aguiar@VALEMOBI.CORP/Documents/git-projects/cloudfooding/src/main/java/com/cloudstax/cloudfooding/HardwareData.java
+/home/gabriel.aguiar@VALEMOBI.CORP/Documents/git-projects/cloudfooding/src/main/java/com/cloudstax/cloudfooding/User.java
