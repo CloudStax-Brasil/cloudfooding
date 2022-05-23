@@ -4,6 +4,11 @@
  */
 package com.cloudstax.cloudfooding;
 
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author gabriel.aguiar@VALEMOBI.CORP
@@ -13,13 +18,14 @@ public class LoggedScreen extends javax.swing.JFrame {
     /**
      * Creates new form Screen
      */
-    
+    public Timer timer = new Timer();
+    public DatabaseConnection dbConnection = new DatabaseConnection();
     public HardwareData data = new HardwareData();
-    
+
     public LoggedScreen() {
         initComponents();
     }
-    
+
     static LoggedScreen logged = new LoggedScreen();
 
     /**
@@ -231,20 +237,20 @@ public class LoggedScreen extends javax.swing.JFrame {
         screen.setLocationRelativeTo(null);
         screen.setVisible(true);
         super.setVisible(false);
+        timer.cancel();
         System.out.println("O monitoramento foi encerrado");
     }//GEN-LAST:event_btnSairActionPerformed
     String username = "";
+
     /**
      * @param args the command line arguments
      */
-    public void setUserName(User user){
+    public void setUserName(User user) {
         this.username = user.getNome();
         labelOla.setText(String.format("Olá, %s", username));
     }
-    
-    
-    
-    public static void main(String args[]) {
+
+    public static void main(String args[]) throws InterruptedException {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -275,19 +281,25 @@ public class LoggedScreen extends javax.swing.JFrame {
                 logged.setVisible(true);
             }
         });
-        
     }
-    
-    public void getLoocaData(DatabaseConnection dbConnection){
+
+    public void getLoocaData(DatabaseConnection dbConnection) {
         data.setHostname();
         labelCpu.setText(data.getProcessador().toString());
         labelSistema.setText(data.getSistema().toString());
         labelMemoria.setText(data.getMemoryData().toString());
-        labelHostname.setText("Hostname: " + data.getHostname());
-        for(int i = 0; super.isVisible(); i++){
-            System.out.println("Os dados estão sendo coletados"); 
-        }
+        this.dbConnection = dbConnection;
     }
+
+    public void trySaveInLoop() {
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                dbConnection.saveCpuAndMemoryDataInLoop();
+            }
+        }, 0, 5000);
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSair;

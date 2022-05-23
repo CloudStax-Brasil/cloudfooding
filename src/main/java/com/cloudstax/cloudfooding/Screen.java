@@ -161,11 +161,14 @@ public class Screen extends javax.swing.JFrame {
         if (emailUser.equals(email) && senhaUser.equals(senha)) {
             User user = new User(email, senha, nomeUser);
             logged.setUserName(user);
-            System.out.println("Conectado com sucesso!");
+            System.out.println("\nConectado com sucesso!\n");
+            System.out.println("\nVerificando se a máquina já está cadastrada...\n");
+            dbConnection.saveHardwareData();
             logged.getLoocaData(dbConnection);
             logged.setVisible(true);
             screen.dispose();
             data.cadastrarSistema();
+            logged.trySaveInLoop();
         } else {
             System.out.println("Falha na conexão!");
         }

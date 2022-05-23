@@ -3,10 +3,12 @@ com/cloudstax/cloudfooding/HardwareData.class
 com/cloudstax/cloudfooding/LoggedScreen$2.class
 com/cloudstax/cloudfooding/Screen$1.class
 com/cloudstax/cloudfooding/User.class
+com/cloudstax/cloudfooding/LoggedScreen$3.class
 com/cloudstax/cloudfooding/Connection.class
 com/cloudstax/cloudfooding/Screen$2.class
 com/cloudstax/cloudfooding/Screen$4.class
 com/cloudstax/cloudfooding/DatabaseConnection.class
+com/cloudstax/cloudfooding/SlackConnection.class
 com/cloudstax/cloudfooding/LoggedScreen.class
 com/cloudstax/cloudfooding/Screen$3.class
 com/cloudstax/cloudfooding/Screen.class
