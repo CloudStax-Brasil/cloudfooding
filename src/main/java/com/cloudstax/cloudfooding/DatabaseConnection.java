@@ -153,7 +153,7 @@ public class DatabaseConnection {
 
         String insertCpu = String.format("INSERT INTO cpu(temperatura, uso, hora,"
                 + "fkMaquina)"
-                + "VALUES ('%s', %d, '%s', %s)",
+                + "VALUES ('%s', %s, '%s', %s)",
                 temperatura, usoCpu, hora, fkMaquina);
 
         String insertMemory = String.format("INSERT INTO memoriaRam(uso, horario, fkMaquina)"
