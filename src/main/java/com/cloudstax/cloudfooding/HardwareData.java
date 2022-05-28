@@ -17,8 +17,8 @@ public class HardwareData {
 
     public void cadastrarSistema() {
 
-        Temperatura temperatura = looca.getTemperatura();
-        Processador processador = looca.getProcessador();
+//        Temperatura temperatura = looca.getTemperatura();
+//        Processador processador = looca.getProcessador();
 
 //        System.out.println(temperatura);
 //        System.out.println(processador);
@@ -29,8 +29,8 @@ public class HardwareData {
         return looca.getMemoria();
     }
 
-    public Temperatura getTemperatura() {
-        return looca.getTemperatura();
+    public String getTemperatura() {
+        return looca.getTemperatura().toString();
     }
 
     public Processador getProcessador() {

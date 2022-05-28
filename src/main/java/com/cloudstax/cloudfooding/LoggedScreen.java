@@ -21,6 +21,7 @@ public class LoggedScreen extends javax.swing.JFrame {
     public Timer timer = new Timer();
     public DatabaseConnection dbConnection = new DatabaseConnection();
     public HardwareData data = new HardwareData();
+    public User usuario = new User();
 
     public LoggedScreen() {
         initComponents();
@@ -249,6 +250,10 @@ public class LoggedScreen extends javax.swing.JFrame {
         this.username = user.getNome();
         labelOla.setText(String.format("Olá, %s", username));
     }
+    
+    public void setUser(User user){
+        this.usuario = user;
+    }
 
     public static void main(String args[]) throws InterruptedException {
         /* Set the Nimbus look and feel */
@@ -288,6 +293,7 @@ public class LoggedScreen extends javax.swing.JFrame {
         labelCpu.setText(data.getProcessador().toString());
         labelSistema.setText(data.getSistema().toString());
         labelMemoria.setText(data.getMemoryData().toString());
+        labelHostname.setText("Hostame: " + data.getHostname());
         this.dbConnection = dbConnection;
     }
 
@@ -295,9 +301,9 @@ public class LoggedScreen extends javax.swing.JFrame {
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                dbConnection.saveCpuAndMemoryDataInLoop();
+                dbConnection.saveCpuAndMemoryDataInLoop(usuario);
             }
-        }, 0, 5000);
+        }, 0, 30000);
     }
 
 

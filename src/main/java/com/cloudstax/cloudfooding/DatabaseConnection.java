@@ -6,7 +6,6 @@ package com.cloudstax.cloudfooding;
 
 import java.util.Date;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -29,7 +28,7 @@ public class DatabaseConnection {
     }
 
     public String getEmail() {
-        String result = "";
+        String result = null;
         String select = String.format("SELECT emailGerente FROM gerente "
                 + "WHERE emailGerente = '%s' AND senhaGerente = '%s'",
                 this.emailGerente, this.senhaGerente);
@@ -37,50 +36,87 @@ public class DatabaseConnection {
         try {
             result = template.queryForObject(select, String.class);
         } catch (EmptyResultDataAccessException exception) {
-            result = "Email não encontrado";
-            System.out.println(result);
+            select = String.format("SELECT emailFuncionario FROM funcionario "
+                    + "WHERE emailFuncionario = '%s' AND senhaFuncionario = '%s'",
+                    this.emailGerente, this.senhaGerente);
+            try {
+                result = template.queryForObject(select, String.class);
+            } catch (EmptyResultDataAccessException e) {
+                System.out.println("Email não cadastrado");
+            }
         }
         return result;
     }
 
     public String getSenha() {
-        String result = "";
+        String result = null;
         String select = String.format("SELECT senhaGerente FROM gerente "
                 + "WHERE emailGerente = '%s' AND senhaGerente = '%s'",
                 this.emailGerente, this.senhaGerente);
         try {
             result = template.queryForObject(select, String.class);
         } catch (EmptyResultDataAccessException exception) {
-            result = "Senha não encontrada";
-            System.out.println(result);
+            select = String.format("SELECT senhaFuncionario FROM funcionario "
+                    + "WHERE emailFuncionario = '%s' AND senhaFuncionario = '%s'",
+                    this.emailGerente, this.senhaGerente);
+            try {
+                result = template.queryForObject(select, String.class);
+            } catch (EmptyResultDataAccessException e) {
+                System.out.println("Senha incorreta");
+            }
         }
         return result;
     }
 
     public String getNome() {
-        String result = "";
+        String result = null;
         String select = String.format("SELECT nomeGerente FROM gerente "
                 + "WHERE emailGerente = '%s'",
                 this.emailGerente);
         try {
             result = template.queryForObject(select, String.class);
         } catch (EmptyResultDataAccessException exception) {
-            result = "Nome não encontrado";
-            System.out.println(result);
+            select = String.format("SELECT nomeFuncionario FROM funcionario "
+                    + "WHERE emailFuncionario = '%s' AND senhaFuncionario = '%s'",
+                    this.emailGerente, this.senhaGerente);
+            try {
+                result = template.queryForObject(select, String.class);
+            } catch (EmptyResultDataAccessException e) {
+                System.out.println("Nome não encontrado");
+            }
         }
         return result;
     }
 
     public String getGerente() {
-        String result = "";
+        String result = null;
         String select = String.format("SELECT idGerente FROM gerente "
                 + "WHERE emailGerente = '%s'",
                 this.emailGerente);
         try {
             result = template.queryForObject(select, String.class);
         } catch (EmptyResultDataAccessException exception) {
-            result = "Gerente não encontrado";
-            System.out.println(result);
+            if (this.getFuncionario() != null) {
+                System.out.println("\nLogando como funcionário");
+            } else {
+                System.out.println("Gerente não encontrado");
+            }
+        }
+        return result;
+    }
+
+    public String getFuncionario() {
+        String result = null;
+        String select = String.format("SELECT idFuncionario FROM funcionario "
+                + "WHERE emailFuncionario = '%s'", this.emailGerente);
+        try {
+            result = template.queryForObject(select, String.class);
+        } catch (EmptyResultDataAccessException exception) {
+            if (this.getGerente() != null) {
+                System.out.println("\nLogando como gerente");
+            } else {
+                System.out.println("Funcionario não encontrado");
+            }
         }
         return result;
     }
@@ -129,10 +165,6 @@ public class DatabaseConnection {
                 template.update(insert);
                 System.out.println("\nMáquina inserida com sucesso\n");
             } catch (DataAccessException error) {
-//                System.out.println("fkGerente: " + fkGerente);
-//                System.out.println("hostname: " + hostname);
-//                System.out.println("memoriaTotal: " + memoriaTotal);
-//                System.out.println("sistema: " + sistema);
                 System.out.println("Erro ao inserir máquina no banco");
             }
         } else {
@@ -140,37 +172,33 @@ public class DatabaseConnection {
         }
     }
 
-    public String saveCpuAndMemoryDataInLoop() {
-        String result;
+    public void saveCpuAndMemoryDataInLoop(User funcionario) {
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = new Date();
 
-        String temperatura = hwData.getTemperatura().toString();
+        String temperatura = hwData.getTemperatura();
         Double usoCpu = hwData.getProcessador().getUso();
         String usoRam = hwData.getMemoryData().getEmUso().toString();
         String hora = formatter.format(date);
         String fkMaquina = this.getMachineId();
+        String fkFuncionario = this.getFuncionario();
 
         String insertCpu = String.format("INSERT INTO cpu(temperatura, uso, hora,"
-                + "fkMaquina)"
-                + "VALUES ('%s', %s, '%s', %s)",
-                temperatura, usoCpu, hora, fkMaquina);
+                + "fkMaquina, fkFuncionario)"
+                + "VALUES ('%s', %s, '%s', %s, %s)",
+                temperatura, usoCpu, hora, fkMaquina, fkFuncionario);
 
-        String insertMemory = String.format("INSERT INTO memoriaRam(uso, horario, fkMaquina)"
-                + "VALUES (%s, '%s', %s)",
-                usoRam, hora, fkMaquina);
+        String insertMemory = String.format("INSERT INTO memoriaRam(uso, horario, "
+                + "fkMaquina, fkFuncionario)"
+                + "VALUES (%s, '%s', %s, %s)",
+                usoRam, hora, fkMaquina, fkFuncionario);
 
         try {
             template.update(insertCpu);
             template.update(insertMemory);
-            result = "\nDados inseridos com sucesso\n";
-            System.out.println(result);
+            System.out.println("\nDados inseridos com sucesso\n");
         } catch (DataAccessException error) {
-            result = "Erro ao inserir dados no banco";
-            System.out.println(result);
+            System.out.println("\nErro ao inserir dados no banco\n");
         }
-
-        return result;
     }
-
 }

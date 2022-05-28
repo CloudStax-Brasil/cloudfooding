@@ -14,6 +14,6 @@ public class SlackConnection {
     Slack slackInstance = Slack.getInstance();
     
     public void getSlackInstance(){
-        System.out.println(slackInstance);
+//        System.out.println(slackInstance);
     }
 }
