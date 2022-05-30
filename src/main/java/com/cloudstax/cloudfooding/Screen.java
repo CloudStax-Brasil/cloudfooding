@@ -4,10 +4,13 @@
  */
 package com.cloudstax.cloudfooding;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  *
  * @author gabriel.aguiar@VALEMOBI.CORP
  */
+@Slf4j
 public class Screen extends javax.swing.JFrame {
 
     /**
@@ -156,14 +159,14 @@ public class Screen extends javax.swing.JFrame {
         String senhaUser = dbConnection.getSenha();
         String nomeUser = dbConnection.getNome();
 
-        System.out.println("Realizando conexão...");
+        log.info("Realizando conexão...");
 
         if (emailUser.equals(email) && senhaUser.equals(senha)) {
             User user = new User(email, senha, nomeUser);
             logged.setUser(user);
             logged.setUserName(user);
-            System.out.println("\nConectado com sucesso!");
-            System.out.println("\nVerificando se a máquina já está cadastrada...");
+            log.info("\nConectado com sucesso!");
+            log.info("\nVerificando se a máquina já está cadastrada...");
             dbConnection.saveHardwareData();
             logged.getLoocaData(dbConnection);
             logged.setVisible(true);
@@ -171,7 +174,7 @@ public class Screen extends javax.swing.JFrame {
             data.cadastrarSistema();
             logged.trySaveInLoop();
         } else {
-            System.out.println("Falha na conexão!");
+            log.error("Falha na conexão!");
         }
     }//GEN-LAST:event_btnEntrarActionPerformed
 

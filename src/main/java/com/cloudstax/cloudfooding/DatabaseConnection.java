@@ -6,6 +6,7 @@ package com.cloudstax.cloudfooding;
 
 import java.util.Date;
 import java.text.SimpleDateFormat;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DataAccessException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -14,6 +15,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
  *
  * @author gabriel.aguiar@VALEMOBI.CORP
  */
+@Slf4j
 public class DatabaseConnection {
 
     Connection config = new Connection();
@@ -42,7 +44,7 @@ public class DatabaseConnection {
             try {
                 result = template.queryForObject(select, String.class);
             } catch (EmptyResultDataAccessException e) {
-                System.out.println("Email não cadastrado");
+                 log.error("Email não cadastrado");
             }
         }
         return result;
@@ -62,7 +64,8 @@ public class DatabaseConnection {
             try {
                 result = template.queryForObject(select, String.class);
             } catch (EmptyResultDataAccessException e) {
-                System.out.println("Senha incorreta");
+                log.error("Senha incorreta!");
+
             }
         }
         return result;
@@ -82,7 +85,7 @@ public class DatabaseConnection {
             try {
                 result = template.queryForObject(select, String.class);
             } catch (EmptyResultDataAccessException e) {
-                System.out.println("Nome não encontrado");
+                log.error("Nome não encontrado!");
             }
         }
         return result;
@@ -97,9 +100,9 @@ public class DatabaseConnection {
             result = template.queryForObject(select, String.class);
         } catch (EmptyResultDataAccessException exception) {
             if (this.getFuncionario() != null) {
-                System.out.println("\nLogando como funcionário");
+                log.info("\nLogando como funcionário");
             } else {
-                System.out.println("Gerente não encontrado");
+                log.error("Gerente não encontrado!");
             }
         }
         return result;
@@ -113,9 +116,9 @@ public class DatabaseConnection {
             result = template.queryForObject(select, String.class);
         } catch (EmptyResultDataAccessException exception) {
             if (this.getGerente() != null) {
-                System.out.println("\nLogando como gerente");
+                log.info("\nLogando como gerente");
             } else {
-                System.out.println("Funcionario não encontrado");
+                log.error("Funcionario não encontrado");
             }
         }
         return result;
@@ -144,8 +147,9 @@ public class DatabaseConnection {
                 hostname);
         try {
             result = template.queryForObject(select, String.class);
+            log.info("Máquina encontrada com sucesso!");
         } catch (EmptyResultDataAccessException exception) {
-            System.out.println("Maquina não encontrada");
+            log.error("Maquina não encontrada");
         }
         return result;
     }
@@ -163,12 +167,12 @@ public class DatabaseConnection {
         if (this.verifyHostname() == true) {
             try {
                 template.update(insert);
-                System.out.println("\nMáquina inserida com sucesso\n");
+                log.info("\nMáquina inserida com sucesso\n");
             } catch (DataAccessException error) {
-                System.out.println("Erro ao inserir máquina no banco");
+                log.error("Erro ao inserir máquina no banco");
             }
         } else {
-            System.out.println("\nMáquina já cadastrada\n");
+            log.warn("\nMáquina já cadastrada\n");
         }
     }
 
@@ -196,9 +200,9 @@ public class DatabaseConnection {
         try {
             template.update(insertCpu);
             template.update(insertMemory);
-            System.out.println("\nDados inseridos com sucesso\n");
+            log.info("\nDados inseridos com sucesso\n");
         } catch (DataAccessException error) {
-            System.out.println("\nErro ao inserir dados no banco\n");
+            log.error("\nErro ao inserir dados no banco\n");
         }
     }
 }
