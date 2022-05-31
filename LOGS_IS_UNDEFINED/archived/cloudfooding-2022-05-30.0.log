@@ -1,0 +1,54 @@
+[cloudfooding] 2022-05-30 21:43:39,536-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Email não cadastrado
+[cloudfooding] 2022-05-30 21:43:40,149-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Senha incorreta!
+[cloudfooding] 2022-05-30 21:43:41,071-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Nome não encontrado!
+[cloudfooding] 2022-05-30 21:43:41,071-0300 INFO  (AWT-EventQueue-0) com.cloudstax.cloudfooding.Screen - Realizando conexão...
+[cloudfooding] 2022-05-30 21:43:43,733-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Email não cadastrado
+[cloudfooding] 2022-05-30 21:43:44,347-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Senha incorreta!
+[cloudfooding] 2022-05-30 21:43:45,063-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Nome não encontrado!
+[cloudfooding] 2022-05-30 21:43:45,064-0300 INFO  (AWT-EventQueue-0) com.cloudstax.cloudfooding.Screen - Realizando conexão...
+[cloudfooding] 2022-05-30 21:43:47,539-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Email não cadastrado
+[cloudfooding] 2022-05-30 21:43:48,341-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Senha incorreta!
+[cloudfooding] 2022-05-30 21:43:49,057-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Nome não encontrado!
+[cloudfooding] 2022-05-30 21:43:49,058-0300 INFO  (AWT-EventQueue-0) com.cloudstax.cloudfooding.Screen - Realizando conexão...
+[cloudfooding] 2022-05-30 21:44:42,451-0300 INFO  (AWT-EventQueue-0) com.cloudstax.cloudfooding.Screen - Realizando conexão...
+[cloudfooding] 2022-05-30 21:44:42,461-0300 INFO  (AWT-EventQueue-0) com.cloudstax.cloudfooding.Screen - 
+Conectado com sucesso!
+[cloudfooding] 2022-05-30 21:44:42,461-0300 INFO  (AWT-EventQueue-0) com.cloudstax.cloudfooding.Screen - 
+Verificando se a máquina já está cadastrada...
+[cloudfooding] 2022-05-30 21:44:43,228-0300 WARN  (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - 
+Máquina já cadastrada
+
+[cloudfooding] 2022-05-30 21:44:47,672-0300 INFO  (Timer-4) com.cloudstax.cloudfooding.DatabaseConnection - Máquina encontrada com sucesso!
+[cloudfooding] 2022-05-30 21:44:48,390-0300 INFO  (Timer-4) com.cloudstax.cloudfooding.DatabaseConnection - 
+Logando como gerente
+[cloudfooding] 2022-05-30 21:44:49,487-0300 INFO  (Timer-4) com.cloudstax.cloudfooding.DatabaseConnection - 
+Dados inseridos com sucesso
+
+[cloudfooding] 2022-05-30 21:45:19,993-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Email não cadastrado
+[cloudfooding] 2022-05-30 21:45:20,605-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Senha incorreta!
+[cloudfooding] 2022-05-30 21:45:21,247-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Nome não encontrado!
+[cloudfooding] 2022-05-30 21:45:21,247-0300 INFO  (AWT-EventQueue-0) com.cloudstax.cloudfooding.Screen - Realizando conexão...
+[cloudfooding] 2022-05-30 21:45:23,910-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Email não cadastrado
+[cloudfooding] 2022-05-30 21:45:24,496-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Senha incorreta!
+[cloudfooding] 2022-05-30 21:45:25,213-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Nome não encontrado!
+[cloudfooding] 2022-05-30 21:45:25,213-0300 INFO  (AWT-EventQueue-0) com.cloudstax.cloudfooding.Screen - Realizando conexão...
+[cloudfooding] 2022-05-30 21:46:58,809-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Email não cadastrado
+[cloudfooding] 2022-05-30 21:46:59,423-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Senha incorreta!
+[cloudfooding] 2022-05-30 21:47:00,032-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Nome não encontrado!
+[cloudfooding] 2022-05-30 21:47:00,033-0300 INFO  (AWT-EventQueue-0) com.cloudstax.cloudfooding.Screen - Realizando conexão...
+[cloudfooding] 2022-05-30 21:47:02,729-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Email não cadastrado
+[cloudfooding] 2022-05-30 21:47:03,417-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Senha incorreta!
+[cloudfooding] 2022-05-30 21:47:03,998-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Nome não encontrado!
+[cloudfooding] 2022-05-30 21:47:03,999-0300 INFO  (AWT-EventQueue-0) com.cloudstax.cloudfooding.Screen - Realizando conexão...
+[cloudfooding] 2022-05-30 21:48:45,413-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Email não cadastrado
+[cloudfooding] 2022-05-30 21:48:45,952-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Senha incorreta!
+[cloudfooding] 2022-05-30 21:48:46,570-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Nome não encontrado!
+[cloudfooding] 2022-05-30 21:48:46,570-0300 INFO  (AWT-EventQueue-0) com.cloudstax.cloudfooding.Screen - Realizando conexão...
+[cloudfooding] 2022-05-30 21:54:45,470-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Email não cadastrado
+[cloudfooding] 2022-05-30 21:54:46,110-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Senha incorreta!
+[cloudfooding] 2022-05-30 21:54:46,752-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Nome não encontrado!
+[cloudfooding] 2022-05-30 21:54:46,752-0300 INFO  (AWT-EventQueue-0) com.cloudstax.cloudfooding.Screen - Realizando conexão...
+[cloudfooding] 2022-05-30 21:54:49,912-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Email não cadastrado
+[cloudfooding] 2022-05-30 21:54:50,707-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Senha incorreta!
+[cloudfooding] 2022-05-30 21:54:51,407-0300 ERROR (AWT-EventQueue-0) com.cloudstax.cloudfooding.DatabaseConnection - Nome não encontrado!
+[cloudfooding] 2022-05-30 21:54:51,408-0300 INFO  (AWT-EventQueue-0) com.cloudstax.cloudfooding.Screen - Realizando conexão...

@@ -173,7 +173,7 @@ public class Screen extends javax.swing.JFrame {
             screen.dispose();
             data.cadastrarSistema();
             logged.trySaveInLoop();
-        } else {
+        }else {
             log.error("Falha na conexão!");
         }
     }//GEN-LAST:event_btnEntrarActionPerformed

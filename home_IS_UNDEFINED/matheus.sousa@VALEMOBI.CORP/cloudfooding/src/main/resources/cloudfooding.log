@@ -1,0 +1,10 @@
+[cloudfooding] 2022-05-30 21:04:32,884-0300 INFO  (main) com.cloudstax.cloudfooding.MensageLog - Iniciou o programa
+[cloudfooding] 2022-05-30 21:04:37,890-0300 ERROR (main) com.cloudstax.cloudfooding.MensageLog - Ocorreu um erro na divisão
+java.lang.ArithmeticException: / by zero
+	at com.cloudstax.cloudfooding.MensageLog.main(MensageiroVersao2.java:13)
+[cloudfooding] 2022-05-30 21:04:37,891-0300 INFO  (main) com.cloudstax.cloudfooding.MensageLog - Finalizou o programa!
+[cloudfooding] 2022-05-30 21:04:50,455-0300 INFO  (main) com.cloudstax.cloudfooding.MensageLog - Iniciou o programa
+[cloudfooding] 2022-05-30 21:04:55,462-0300 ERROR (main) com.cloudstax.cloudfooding.MensageLog - Ocorreu um erro na divisão
+java.lang.ArithmeticException: / by zero
+	at com.cloudstax.cloudfooding.MensageLog.main(MensageiroVersao2.java:13)
+[cloudfooding] 2022-05-30 21:04:55,463-0300 INFO  (main) com.cloudstax.cloudfooding.MensageLog - Finalizou o programa!

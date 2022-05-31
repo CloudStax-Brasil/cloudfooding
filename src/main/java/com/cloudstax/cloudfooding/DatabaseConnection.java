@@ -30,7 +30,7 @@ public class DatabaseConnection {
     }
 
     public String getEmail() {
-        String result = null;
+        String result = "";
         String select = String.format("SELECT emailGerente FROM gerente "
                 + "WHERE emailGerente = '%s' AND senhaGerente = '%s'",
                 this.emailGerente, this.senhaGerente);
